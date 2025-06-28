@@ -1,0 +1,108 @@
+/* src/app/product/[id]/ProductPage.module.css */
+
+.main {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 56rem; /* 896px - Made it a bit wider */
+  background-color: #FFFFFF;
+  border-radius: 0.5rem; /* 8px */
+  border: 1px solid #F0EBE3;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  display: grid; /* This is the main change for the layout */
+  grid-template-columns: 1fr; /* Default to one column */
+  gap: 2rem;
+}
+
+/* On medium screens and up, switch to two columns */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    padding: 0; /* Remove padding from container to allow image to touch edge */
+  }
+}
+
+/* This new class is for the image column */
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border-radius: 0.5rem 0 0 0.5rem; /* Round the left corners */
+  overflow: hidden;
+}
+
+/* This new class is for the text content column */
+.detailsWrapper {
+  padding: 2.5rem; /* 40px */
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-lora);
+  font-size: 2.5rem; /* 40px */
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #4D4D4D;
+}
+
+.description {
+  font-size: 1.125rem; /* 18px */
+  color: #7A7A7A;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes the price and buttons down */
+}
+
+.price {
+  font-family: var(--font-inter);
+  font-size: 2rem; /* 32px */
+  font-weight: 800; /* extra-bold */
+  color: #4D4D4D;
+  margin-bottom: 2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .buttonGroup {
+    flex-direction: row;
+  }
+}
+
+.button {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: #A7727D; /* accent color */
+  color: white;
+}
+.primaryButton:hover {
+  background-color: #8E5E6A; /* accent-hover color */
+}
+
+.secondaryButton {
+  background-color: #E5E7EB; /* light gray */
+  color: #4D4D4D;
+}
+.secondaryButton:hover {
+  background-color: #F0EBE3; /* border color */
+}

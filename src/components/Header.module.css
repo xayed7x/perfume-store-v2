@@ -1,0 +1,86 @@
+/* src/components/Header.module.css */
+
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #FFFBF5; /* Same as our page background */
+  border-bottom: 1px solid #F0EBE3; /* A subtle bottom border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo {
+  font-family: var(--font-lora);
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  text-decoration: none;
+  color: #4D4D4D;
+}
+
+.cartLink {
+  text-decoration: none;
+  color: #4D4D4D;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 9999px; /* A circle */
+  transition: background-color 0.2s ease;
+}
+
+.cartLink:hover {
+  background-color: #F0EBE3;
+}
+
+/* This is the little red circle with the item count */
+.cartCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #c53030; /* A shade of red */
+  color: white;
+  border-radius: 9999px;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  font-size: 0.75rem; /* 12px */
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1; /* Helps with vertical alignment */
+}
+
+/* src/components/Header.module.css */
+
+/* --- ADD THE CODE BELOW THIS LINE --- */
+
+.searchContainer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.searchInput {
+  border: 1px solid #F0EBE3;
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: #4D4D4D;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #A7727D;
+  box-shadow: 0 0 0 3px rgba(167, 114, 125, 0.2);
+}

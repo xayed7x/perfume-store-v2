@@ -1,0 +1,59 @@
+/* src/components/ProductCard.module.css */
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 0.5rem; /* 8px */
+  border: 1px solid #F0EBE3;
+  height: 100%;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden; /* This is important to contain the image's rounded corners */
+  display: flex;
+  flex-direction: column;
+}
+
+.cardLink:hover .card {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* This is the new container for our image */
+.cardImageContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* This makes the image container a perfect square */
+  position: relative; /* Needed for the Next.js Image component */
+}
+
+/* This new class will wrap our text content */
+.cardContent {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardName {
+  font-family: var(--font-lora);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #4D4D4D;
+}
+
+.cardDescription {
+  color: #7A7A7A;
+  margin-bottom: 1rem; /* 16px */
+  flex-grow: 1; /* This makes the description take up available space */
+}
+
+.cardPrice {
+  font-family: var(--font-inter);
+  font-size: 1.125rem; /* 18px */
+  font-weight: bold;
+  color: #4D4D4D;
+}

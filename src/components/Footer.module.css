@@ -1,0 +1,44 @@
+/* src/components/Footer.module.css */
+
+.footer {
+  width: 100%;
+  background-color: #FFFBF5; /* Same as page background */
+  padding: 2rem;
+  margin-top: 4rem; /* Add some space above the footer */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #F0EBE3; /* Our subtle border color */
+  margin-bottom: 2rem;
+}
+
+.links {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.link {
+  color: #7A7A7A; /* secondary text color */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #4D4D4D; /* primary text color */
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 0.875rem; /* 14px */
+  color: #7A7A7A;
+}

@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+// next.config.ts
+
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  // The images block that was here has been removed.
+}
 
-export default nextConfig;
+export default nextConfig
