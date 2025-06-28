@@ -1,54 +1,21 @@
 // src/app/product/[id]/ProductClientPage.tsx
 
-'use client'; 
+'use client';
 
-import { mockProducts } from "@/data/products";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import styles from './ProductPage.module.css';
-import { useCart } from '@/context/CartContext';
-import Image from 'next/image';
 
-// This component receives 'params' as a normal prop from its parent (page.tsx)
+// We are using the same props structure as before
 export default function ProductClientPage({ params }: { params: { id: string } }) {
-  const { addToCart } = useCart();
-  
-  const product = mockProducts.find(
-    (p) => p.id.toString() === params.id
-  );
-
-  if (!product) {
-    notFound();
-  }
-
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            fill={true}
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-
-        <div className={styles.detailsWrapper}>
-          <h1 className={styles.title}>{product.name}</h1>
-          <p className={styles.description}>{product.description}</p>
-          <p className={styles.price}>${product.price}</p>
-          <div className={styles.buttonGroup}>
-            <button 
-              className={`${styles.button} ${styles.primaryButton}`}
-              onClick={() => addToCart(product)}
-            >
-              Add to Cart
-            </button>
-            <Link href="/" className={`${styles.button} ${styles.secondaryButton}`}>
-              &larr; Back to Collection
-            </Link>
-          </div>
-        </div>
+      <div className={styles.container} style={{ padding: '2rem' }}>
+        <h1 className={styles.title}>Product Page</h1>
+        <p style={{fontSize: '1.2rem', margin: '1rem 0'}}>
+          The ID for this product is: <strong>{params.id}</strong>
+        </p>
+        <p>
+          If you can see this page on the live Vercel site, it means our new component structure is working.
+        </p>
       </div>
     </main>
   );
