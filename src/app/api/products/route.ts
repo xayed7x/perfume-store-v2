@@ -1,14 +1,14 @@
 // src/app/api/products/route.ts
 
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma"; // 1. Import our new shared prisma client
+import prisma from "@/lib/prisma";
 
 // We no longer create a new instance here.
 
-// This function handles GET requests to /api/products
-export async function GET(request: Request) {
+// This is the only change: `request` is renamed to `_request`
+export async function GET(_request: Request) {
   try {
-    // 2. Use the imported prisma client to fetch the data
+    // Use the imported prisma client to fetch the data
     const products = await prisma.product.findMany();
 
     // Send the fetched products back as a JSON response
