@@ -8,20 +8,22 @@ import { notFound } from "next/navigation";
 import styles from './ProductPage.module.css';
 import { useCart } from '@/context/CartContext';
 import Image from 'next/image';
+import { use } from 'react'; // 1. Import the 'use' hook
 
-// THE FIX: We are telling TypeScript to treat props as 'any' type
-// This forces it to skip the check that is causing our build to fail.
 export default function ProductPage({ params }: any) {
   const { addToCart } = useCart();
   
-  // We add a safeguard to make sure params and params.id exist.
-  if (!params || !params.id) {
-    // You can return a loading state or a not found page
+  // 2. Use the hook to safely "unwrap" the params
+  const resolvedParams = use(params);
+
+  // 3. Add a safeguard to make sure params and params.id exist
+  if (!resolvedParams || !resolvedParams.id) {
     return notFound();
   }
 
+  // 4. Use the new resolvedParams variable to find the product
   const product = mockProducts.find(
-    (p) => p.id.toString() === params.id
+    (p) => p.id.toString() === resolvedParams.id
   );
 
   if (!product) {
