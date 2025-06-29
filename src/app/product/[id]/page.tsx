@@ -1,33 +1,24 @@
 // src/app/product/[id]/page.tsx
 
-'use client'; 
+// Notice: 'use client' is GONE. This is now a Server Component.
 
 import { mockProducts } from "@/data/products";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from './ProductPage.module.css';
-import { useCart } from '@/context/CartContext';
 import Image from 'next/image';
-import { use } from 'react'; // 1. Import the 'use' hook
+import AddToCartButton from "@/components/AddToCartButton"; // 1. Import our new Client Component
 
-export default function ProductPage({ params }: any) {
-  const { addToCart } = useCart();
+// Server Components can be async functions
+export default async function ProductPage({ params }: { params: { id: string } }) {
   
-  // 2. Use the hook to safely "unwrap" the params
-  const resolvedParams = use(params);
-
-  // 3. Add a safeguard to make sure params and params.id exist
-  if (!resolvedParams || !resolvedParams.id) {
-    return notFound();
-  }
-
-  // 4. Use the new resolvedParams variable to find the product
+  // This logic runs on the server
   const product = mockProducts.find(
-    (p) => p.id.toString() === resolvedParams.id
+    (p) => p.id.toString() === params.id
   );
 
   if (!product) {
-    return notFound();
+    notFound();
   }
 
   return (
@@ -47,12 +38,10 @@ export default function ProductPage({ params }: any) {
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>${product.price}</p>
           <div className={styles.buttonGroup}>
-            <button 
-              className={`${styles.button} ${styles.primaryButton}`}
-              onClick={() => addToCart(product)}
-            >
-              Add to Cart
-            </button>
+            {/* 2. We now use our new, isolated button component */}
+            {/* We pass the product data it needs as a prop */}
+            <AddToCartButton product={product} />
+
             <Link href="/" className={`${styles.button} ${styles.secondaryButton}`}>
               &larr; Back to Collection
             </Link>

@@ -1,0 +1,21 @@
+/* src/components/AddToCartButton.module.css */
+
+.button {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: #A7727D; /* accent color */
+  color: white;
+}
+
+.primaryButton:hover {
+  background-color: #8E5E6A; /* accent-hover color */
+}
